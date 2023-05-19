@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "watch": true,
+        "lib": [
+            "dom", "es2017"
+        ],
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "strict": true,
+        "module": "Commonjs",
+        "noUncheckedIndexedAccess": true,
+        "forceConsistentCasingInFileNames": true,
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+}

@@ -1,0 +1,17 @@
+{
+  "name": "feurbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^8.3.0",
+    "dotenv": "^16.0.3",
+    "mineflayer": "^4.8.1",
+    "typescript": "^5.0.4"
+  }
+}

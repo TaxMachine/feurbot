@@ -1,13 +1,15 @@
 import fs from 'fs';
 import { CommandError } from './utils/types';
 import { MineBot } from './utils/types';
+import { Help } from './commands/help';
+import { TPS } from './commands/tps';
 
 export abstract class MineCommand {
     name: string;
-    func: ((bot: MineBot, args: string[]) => Promise<void>);
-    constructor(name: string, func: (bot: MineBot, args: string[]) => Promise<void>) {
+    description: string;
+    constructor(name: string, description: string) {
         this.name = name;
-        this.func = func;
+        this.description = description;
     }
 
     abstract run(bot: MineBot, args: string[]): Promise<void>;
@@ -15,12 +17,8 @@ export abstract class MineCommand {
     static async loadCommands() {
         const commands: MineCommand[] = [];
         
-        const files = fs.readdirSync('./commands');
-        for (const file of files) {
-            const cmdClass = (await import(`./commands/${file}`)).default;
-            const cmd = new cmdClass(); 
-            commands.push(cmd);
-        }
+        commands.push(new Help());
+        commands.push(new TPS());
             
         return commands;
     }

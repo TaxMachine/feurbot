@@ -5,8 +5,6 @@ export interface MineBot extends Bot {
     commands?: MineCommand[];
 }
 
-
-
 export class CommandError extends Error {
     message: string;
     constructor(message: string) {

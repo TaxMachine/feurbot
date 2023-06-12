@@ -14,7 +14,7 @@ export class MineEvent {
 
     static async loadEvents() {
         const events: MineEvent[] = [];
-        const files = fs.readdirSync('./events');
+        const files = fs.readdirSync(`${__dirname}/events`);
         for (const file of files) {
             const event = await import(`./events/${file}`);
             events.push(new MineEvent(file.split('.')[0] as string, event.default));
